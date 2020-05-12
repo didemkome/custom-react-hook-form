@@ -17,7 +17,7 @@ export const Label = styled.label`
   opacity: 0.5;
   display: flex;
   align-items: center;
-  
+
   img {
     width: 10px;
     height: 16px;
@@ -25,7 +25,7 @@ export const Label = styled.label`
   }
 `;
 
-export const Input = styled.input`
+export const FormInput = styled.input`
   border-radius: 4px;
   height: 50px;
   border: 1px solid #c7c7c7;
@@ -53,16 +53,16 @@ export const Input = styled.input`
     transform: scale(0.9) translateY(-100%) translateX(-30px);
     background-color: white;
   }
-  
+
   ${props =>
     props.hasValid &&
     css`
-        border: 1px solid #008641;
-        
-          &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
-             color: #008641;
-          }
-  `}
+      border: 1px solid #008641;
+
+      &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
+        color: #008641;
+      }
+    `}
 
   &:focus,
   &:active,
@@ -71,27 +71,12 @@ export const Input = styled.input`
     props.hasError &&
     css`
         border: 1px solid #ff4242;
-        
-          &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
-             color: #ff4242;
-          }
-        `}
+
+        &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
+          color: #ff4242;
+        }
+      `}
   }
-`;
-
-export const ErrorMessage = styled.p`
-  display: block;
-`;
-
-export const Button = styled.button`
-  border-radius: 4px;
-  border: none;
-  background-color: #008641;
-  height: 50px;
-  width: 100%;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
 `;
 
 export const ErrorIcon = styled.div`
@@ -121,4 +106,9 @@ export const ValidIcon = styled.div`
   position: absolute;
     right: 15px;
     top: 17px;
+`;
+
+export const ErrorMessage = styled.p`
+  display: block;
+  color: #ff4242;
 `;

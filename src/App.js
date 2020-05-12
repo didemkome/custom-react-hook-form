@@ -1,17 +1,14 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import * as Yup from "yup";
-/*import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";*/
+
+import phone from "../src/styles/phone@2x.svg";
+import password from "../src/styles/password@2x.svg"
 import {
     InputWrapper,
-    Label,
-    Input,
-    ErrorMessage,
     Button,
-    ErrorIcon
 } from "./style";
+import {Input} from "./components/Input";
+import {Form} from "./components/Form";
 
 /*library.add(faTimes);*/
 
@@ -43,58 +40,27 @@ const App = () => {
             })
     });
 
-    const { register, handleSubmit, errors } = useForm({
-        validationSchema: LoginSchema
-    });
-
     const onSubmit = data => console.log(data);
-
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <InputWrapper>
-                <Input
-                    type="tel"
-                    placeholder=" "
-                    name="phoneNumber"
-                    ref={register}
-                    hasError={errors.phoneNumber}
-                    hasValid={!errors.phoneNumber}
-                />
-{/*                {errors.phoneNumber && (
-                    <ErrorIcon>
-                        <FontAwesomeIcon icon={["fas", "times"]} />
-                    </ErrorIcon>
-                )}*/}
-                <Label>
-                    Cep Telefonu Numarası
-                </Label>
-                {errors.phoneNumber && (
-                    <ErrorMessage>{errors.phoneNumber.message}</ErrorMessage>
-                )}
-            </InputWrapper>
-            <InputWrapper>
-                <Input
-                    type="text"
-                    placeholder=" "
-                    name="password"
-                    ref={register}
-                    hasError={errors.password}
-                    hasValid={!errors.password}
-                />
-{/*                {errors.password && (
-                    <ErrorIcon>
-                        <FontAwesomeIcon icon={["fas", "times"]} />
-                    </ErrorIcon>
-                )}*/}
-                <Label>Şifre</Label>
-                {errors.password && (
-                    <ErrorMessage>{errors.password.message}</ErrorMessage>
-                )}
-            </InputWrapper>
+        <Form onSubmit={onSubmit} validationSchema={LoginSchema}>
+            <Input
+                type="tel"
+                placeholder=" "
+                name="phoneNumber"
+                label="Cep Telefonu Numarası"
+                icon={phone}
+            />
+            <Input
+                type="text"
+                placeholder=" "
+                name="password"
+                label="Şifre"
+                icon={password}
+            />
             <InputWrapper>
                 <Button type="submit">Giriş Yap</Button>
             </InputWrapper>
-        </form>
+        </Form>
     );
 };
 
