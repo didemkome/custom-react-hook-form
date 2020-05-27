@@ -2,10 +2,10 @@ import styled, { css } from "styled-components";
 
 export const InputWrapper = styled.div`
   position: relative;
-  margin: 20px 0;
+  margin-bottom: 20px;
 `;
 
-export const Label = styled.label`
+export const Label = styled.span`
   font-size: 14px;
   font-weight: 600;
   color: #999999;
@@ -33,6 +33,7 @@ export const FormInput = styled.input`
   font-weight: 600;
   color: #212121;
   width: 100%;
+  padding-left: 20px;
 
   &:focus,
   &:active {
@@ -41,7 +42,7 @@ export const FormInput = styled.input`
 
   &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
     opacity: 1;
-    transform: scale(0.75) translateY(-240%) translateX(-30px);
+    transform: translateY(-150%);
     font-size: 12px;
     font-weight: 600;
     background-color: white;
@@ -50,7 +51,7 @@ export const FormInput = styled.input`
   /* For IE Browsers*/
   &:focus + ${Label}, &:not(:-ms-input-placeholder) + ${Label} {
     opacity: 1;
-    transform: scale(0.9) translateY(-100%) translateX(-30px);
+    transform: translateY(-150%);
     background-color: white;
   }
 

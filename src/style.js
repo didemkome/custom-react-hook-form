@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
+import {CheckboxWrapper} from "./components/Checkbox/Style";
 
+export const Container = styled.div`
+padding: 15px 15px 71px;
+`;
 export const InputWrapper = styled.div`
   position: relative;
   margin: 20px 0;
@@ -121,4 +125,13 @@ export const ValidIcon = styled.div`
   position: absolute;
     right: 15px;
     top: 17px;
+`;
+
+export const Wrapper = styled.div`
+  display:flex;
+    ${CheckboxWrapper}{
+      &:first-child{
+         margin-right: 9px;
+    }
+    }
 `;

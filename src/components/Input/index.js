@@ -1,9 +1,9 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-import { InputWrapper, Label, FormInput, ErrorIcon, ValidIcon, ErrorMessage } from "./style";
+import { InputWrapper, Label, FormInput, ErrorIcon, ValidIcon, ErrorMessage } from "./Style";
 
-export const Input = ({ name, label, valid, icon, ...props }) => {
+export const Input = ({ name, label, icon, ...props }) => {
     const { errors, formState, register } = useFormContext();
     const { touched } = formState;
     return (
@@ -16,16 +16,15 @@ export const Input = ({ name, label, valid, icon, ...props }) => {
                 hasError={errors[name]}
                 hasValid={touched[name] && !errors[name]}
             />
+            {label &&
             <Label>
-                <img src={icon} alt=""/>
                 {label}
             </Label>
-            {errors[name] &&
-                <ErrorIcon>
-                    {/*<FontAwesomeIcon icon={["fas", "times"]} />*/}
-                </ErrorIcon>
             }
-            {touched[name] && !errors[name] && <ValidIcon/>}
+            {label && errors[name] &&
+                <ErrorIcon/>
+            }
+            {label && (touched[name] && !errors[name]) && <ValidIcon/>}
             {errors[name] && (
                 <ErrorMessage>{errors[name].message}</ErrorMessage>
             )}
