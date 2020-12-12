@@ -27,24 +27,3 @@ export const LoginSchema = Yup.object().shape({
             message: validationMessages.password
         })
 });
-
-export const ActivationSchema = Yup.object().shape({
-    one: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1),
-    two: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1),
-    three: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1),
-    four: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1),
-    five: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1),
-    six: Yup.string()
-        .required(validationMessages.requiredShort)
-        .length(1)
-});
